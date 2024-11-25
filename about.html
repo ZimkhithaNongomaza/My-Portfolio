@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+    height: 100vh;        
+    margin: 0;
+    background-color: #0f0f0f;
+    color: #fff;
+}
+
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #111;  
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sidebar h2 {
+    font-size: 100px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff4f81, #7d2ae8); 
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 40px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #7d2ae8;  
+    transform: scale(1.1);  
+}
+
+
+.main-content {
+            margin-left: 270px; 
+            padding: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #ff4f81, #7d2ae8); 
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 50px; 
+        }
+
+        section {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            background-color: #0f0f0f;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color:white;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #0f0f0f;
+            border-left: 4px solid #7d2ae8;
+        }
+
+
+.main-content h1 {
+    color: white;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    filter: blur(0.1px);
+
+}
+
+.main-content section {
+    margin-bottom: 40px;
+}
+
+.main-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding-top: 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar h2 {
+        font-size: 60px;
+    }
+
+    .main-content h1 {
+        font-size: 30px;
+    }
+}
+
+
+
+</style>
+
+<body>
+
+
+
+
+    <div class="sidebar">
+        <h2>ZN</h2>
+        <ul>
+            <li><a href="Index.html">Zimkhitha Nongomaza</a></li>
+
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+
+
+
+        </ul>
+    </div>
+    </div>
+
+    <div class="main-content">
+        <section id="about">
+            <p>I’m a passionate Web Developer with a strong foundation in software development. I love combining creativity with logic to build functional and visually appealing web applications.</p>
+            <br>
+            <P>I have obtained a Diploma in Software Development at Nelson Mandela University, and I have been working in the Software Development field since 2022, and I have acquired experience in the process</P>
+        </section>
+
+       
+    </div>
+
+</body>
+</html>

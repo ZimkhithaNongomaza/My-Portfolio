@@ -20,17 +20,19 @@ body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center; 
-    align-items: flex-start;  
+    align-items: center;  
     height: 100vh;        
     margin: 0;
     background-color: #0f0f0f;
-    color: #fff;
+    color: white;
+    overflow: hidden;
 }
 
+/* Sidebar */
 .sidebar {
-    width: 250px;
+    width: 280px;
     height: 100vh;
-    background-color: #111;  
+    background-color: #111;
     position: fixed;
     top: 0;
     left: 0;
@@ -39,6 +41,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
+    z-index: 10;
 }
 
 .sidebar h2 {
@@ -48,8 +52,10 @@ body {
     -webkit-background-clip: text;
     color: transparent;
     margin-bottom: 40px;
+    animation: neonGlow 1.5s infinite alternate;
 }
 
+/* Sidebar links */
 .sidebar ul {
     list-style-type: none;
     padding-left: 0;
@@ -59,6 +65,7 @@ body {
     width: 100%;
     padding: 15px 0;
     text-align: center;
+    position: relative;
 }
 
 .sidebar ul li a {
@@ -66,13 +73,31 @@ body {
     text-decoration: none;
     font-size: 18px;
     display: block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border:  2px solid #7d2ae8;
+    transition: transform 0.3s ease, color 0.3s ease;
+    letter-spacing: 2px;
+    border: 2px solid transparent;
+    padding: 10px;
 }
 
 .sidebar ul li a:hover {
-    background-color: #7d2ae8;  
-    transform: scale(1.1);  
+    transform: scale(1.1);
+    color: #7d2ae8;
+    border: 2px solid #7d2ae8;
+}
+/* Keyframe Animations */
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 10px #ff4f81, 0 0 20px #ff4f81, 0 0 30px #7d2ae8, 0 0 40px #7d2ae8; }
+    100% { text-shadow: 0 0 20px #7d2ae8, 0 0 40px #ff4f81, 0 0 60px #ff4f81, 0 0 80px #7d2ae8; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mainContentAnimation {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 /* Main content styling */
@@ -81,27 +106,11 @@ body {
     padding: 20px;
     width: calc(100% - 250px); /* Adjust width to fill the rest of the screen */
     display: flex;
-    justify-content: space-between; /* Space between cards */
-    align-items: flex-start; /* Align items to the top */
-    flex-wrap: nowrap; /* Prevent cards from wrapping to the next line */
-}
-
-.main-content h1 {
-    color: white;
-    font-size: 40px;
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    filter: blur(0.1px);
-}
-
-.main-content section {
-    margin-bottom: 40px;
-}
-
-.main-content p {
-    font-size: 18px;
-    line-height: 1.6;
+    flex-wrap: wrap;  /* Allow cards to wrap */
+    gap: 20px;  /* Add space between the cards */
+    justify-content: center;  /* Center the cards horizontally */
+    align-items: center;  /* Center the cards vertically */
+    min-height: 100vh; /* Ensure full height to allow vertical centering */
 }
 
 /* Adjustments for mobile view */
@@ -179,10 +188,6 @@ audio {
     overflow: hidden;
 }
 
-
-
-
-
 .card:hover {
     background-color: #7d2ae8;  
 }
@@ -204,25 +209,6 @@ audio {
     margin: 0;
     padding-bottom: 10px
 }
-.card h2 {
-    font-size: 24px; 
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    overflow-wrap: break-word; 
-    white-space: normal;
-    flex-grow: 1; 
-    text-align: center; 
-    line-height: 1.3; 
-    word-wrap: break-word; 
-    height: 70px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding-bottom: 10px
-}
-
 
 .card2:hover {
     background-color: #7d2ae8;  
@@ -245,28 +231,10 @@ audio {
     margin: 0;
     padding-bottom: 10px
 }
-.card2 h2 {
-    font-size: 24px; 
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    overflow-wrap: break-word; 
-    white-space: normal;
-    flex-grow: 1; 
-    text-align: center; 
-    line-height: 1.3; 
-    word-wrap: break-word; 
-    height: 70px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding-bottom: 10px
+ul {
+    list-style-type: disc; /* Use bullet points (you can change to circle if needed) */
+    padding-left: 20px; /* Adds padding for proper spacing */
 }
-.card2:hover {
-    background-color: #7d2ae8;  
-}
-
 
 
 
@@ -277,85 +245,65 @@ audio {
     <audio id="background-music" autoplay loop>
         <source src="your-music-file.mp3" type="audio/mp3">
         <source src="your-music-file.ogg" type="audio/ogg">
-      
     </audio>
-
 
     <div class="sidebar">
         <h2>ZN</h2>
         <ul>
-            <li><a href=" Index.html">Zimkhitha Nongomaza</a></li>
-
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/about.html">Projects</a></li>
-            <li><a href="/about.html">Skills</a></li>
-
-
-
+            <li><a href="Index.html">Zimkhitha Nongomaza</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
         </ul>
-    </div>
     </div>
 
     <div class="main-content">
-        <br>
-        <br>
         <div class="card">
             <div class="container">
-                <h1><b>TECHNICAL </b></h1> 
-                <ol>
-                    <li> Ms Office</li>
+                <h1><b>TECHNICAL</b></h1> 
+                <ul>
+                    <li>Ms Office</li>
                     <li>Visual Studio Code</li>
                     <li>GitHub</li>
                     <li>SharePoint</li>
                     <li>SQL Server</li>
-
-                 </ol>
+                </ul>
             </div>
         </div>
-        <br>
-        <br>
+        
         <div class="card2">
             <div class="container">
                 <h1><b>PERSONAL</b></h1> 
-                <ol>
+                <ul>
                     <li>Team Player</li>
                     <li>Problem Solving</li>
                     <li>Conflict Management</li>
-                
                     <li>Leadership</li>
-                        
-                  
-                 </ol>
-         
+                </ul>
             </div>
         </div>
+
         <div class="card">
             <div class="container">
-                <h1><b>PROFFESIONAL</b></h1> 
-                <ol>
-                    <li> Communication</li>
+                <h1><b>PROFESSIONAL</b></h1> 
+                <ul>
+                    <li>Communication</li>
                     <li>Project Management</li>
                     <li>User Interface Design</li>
-            
                     <li>Programming</li>
-                        
-                  
-                 </ol>
+                </ul>
             </div>
         </div>
 
         <div class="card2">
             <div class="container">
                 <h1><b>PROGRAMMING</b></h1> 
-                <ol>
-                    <li> HTML/CSS</li>
-                    <li>c# Asp.net</li>
+                <ul>
+                    <li>HTML/CSS</li>
+                    <li>C# ASP.NET</li>
                     <li>Python</li>
-                    <li>Django  </li>
+                    <li>Django</li>
                     <li>JavaScript</li>
-                 </ol>
+                <ul>
             </div>
-        </div>
-    </div>
-</body>
-</html>
+        </div

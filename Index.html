@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zimkhitha Nongomaza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
@@ -26,14 +24,15 @@ body {
     height: 100vh;        
     margin: 0;
     background-color: #0f0f0f;
-    color: #fff;
+    color: white;
+    overflow: hidden;
 }
 
-
+/* Sidebar */
 .sidebar {
-    width: 250px;
+    width: 280px;
     height: 100vh;
-    background-color: #111;  
+    background-color: #111;
     position: fixed;
     top: 0;
     left: 0;
@@ -42,6 +41,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
+    z-index: 10;
 }
 
 .sidebar h2 {
@@ -51,8 +52,10 @@ body {
     -webkit-background-clip: text;
     color: transparent;
     margin-bottom: 40px;
+    animation: neonGlow 1.5s infinite alternate;
 }
 
+/* Sidebar links */
 .sidebar ul {
     list-style-type: none;
     padding-left: 0;
@@ -62,7 +65,7 @@ body {
     width: 100%;
     padding: 15px 0;
     text-align: center;
-  
+    position: relative;
 }
 
 .sidebar ul li a {
@@ -70,35 +73,38 @@ body {
     text-decoration: none;
     font-size: 18px;
     display: block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border:  2px solid #7d2ae8;
+    transition: transform 0.3s ease, color 0.3s ease;
+    letter-spacing: 2px;
+    border: 2px solid transparent;
+    padding: 10px;
 }
 
 .sidebar ul li a:hover {
-    background-color: #7d2ae8;  
-    transform: scale(1.1);  
-
+    transform: scale(1.1);
+    color: #7d2ae8;
+    border: 2px solid #7d2ae8;
 }
 
-
+/* Main Content */
 .main-content {
-    margin-left: 250px;
+    margin-left: 280px;
     padding: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;    
     justify-content: center;
+    animation: mainContentAnimation 2s ease-out forwards;
 }
 
 .main-content h1 {
     color: white;
-    font-size: 40px;
+    font-size: 48px;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 15px;
     text-transform: uppercase;
-    filter: blur(0.1px);
-
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out forwards;
 }
 
 .main-content section {
@@ -108,15 +114,118 @@ body {
 .main-content p {
     font-size: 18px;
     line-height: 1.6;
+    max-width: 800px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 2s ease-out forwards;
+    animation-delay: 1s;
 }
 
+/* Hover Effect on Cards */
+.contact-frame {
+    position: relative;
+    border: 3px solid #7d2ae8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contact-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px 10px #7d2ae8;
+}
+
+.contact-info h3 {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Contact Info Styling */
+.contact-info {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: left;
+    max-width: 600px; /* To prevent it from getting too wide */
+    margin: 0 auto;
+}
+
+.contact-info h3 {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Styling for the contact list */
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Each contact list item */
+.contact-info li {
+    display: flex;
+    align-items: center; /* Ensures that the icon and text align vertically */
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+/* Icon styling */
+.contact-info i {
+    margin-right: 15px;
+    font-size: 24px; /* Makes icons a bit larger */
+    color: #7d2ae8;
+    transition: color 0.3s ease;
+}
+
+/* Link styling */
+.contact-info a {
+    color: #7d2ae8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Hover effects for links and icons */
+.contact-info a:hover {
+    color: #ff4f81;
+}
+
+.contact-info i:hover {
+    color: #ff4f81; /* Makes icon color change on hover */
+}
+
+/* Keyframe Animations */
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 10px #ff4f81, 0 0 20px #ff4f81, 0 0 30px #7d2ae8, 0 0 40px #7d2ae8; }
+    100% { text-shadow: 0 0 20px #7d2ae8, 0 0 40px #ff4f81, 0 0 60px #ff4f81, 0 0 80px #7d2ae8; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mainContentAnimation {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .sidebar {
-        width: 200px;
+        width: 220px;
     }
 
     .main-content {
-        margin-left: 200px;
+        margin-left: 220px;
     }
 }
 
@@ -139,72 +248,25 @@ body {
         font-size: 30px;
     }
 }
+
 audio {
     display: none;
 }
-
-.contact-info {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .contact-info ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-info li {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .contact-info a {
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact-info a:hover {
-            color: #7d2ae8;
-        }
-
-        .contact-info i {
-            margin-right: 10px;
-            font-size: 20px;
-        }
-        .contact-frame{
-            border: 10px solid #7d2ae8;
-            min-width: 1000px
-        }
-        
-
 
 </style>
 
 <body>
 
-  
-
-
     <div class="sidebar">
         <h2>ZN</h2>
         <ul>
-            <li><a href=" Index.html">Zimkhitha Nongomaza</a></li>
-
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/projects.html">Projects</a></li>
-            <li><a href="/skills.html">Skills</a></li>
-
-
-
+            <li><a href="Index.html">Zimkhitha Nongomaza</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
         </ul>
     </div>
-    </div>
+
     <div class="main-content">
         <div class="contact-frame">
             <section id="about">
@@ -212,18 +274,19 @@ audio {
                 <h1>I'm Zimkhitha Nongomaza,</h1>
                 <h1>Systems Software Developer</h1>
             </section>
-    
             <div class="contact-info">
                 <h3>Please contact me here:</h3>
                 <ul>
                     <li><i class="fas fa-envelope"></i>Email: <a href="mailto:zimnongomaza@gmail.com">zimnongomaza@gmail.com</a></li>
                     <li><i class="fas fa-phone-alt"></i>Phone: 063 608 5954</li>
                     <li><i class="fab fa-linkedin"></i>LinkedIn: <a href="https://www.linkedin.com/in/zimkhitha-nongomaza-9699842a8" target="_blank">Zimkhitha Nongomaza</a></li>
-                    <li><i class="fab fa-github"></i>GitHub: <a href="https://github.com/ZimkhithaNongomaza/Nongomaza.git" target="_blank">Zimkhitha Nongomaza</a></li>
+                    <li><i class="fab fa-github"></i>GitHub: <a href="https://github.com/ZimkhithaNongomaza/Nongomaza.git" target="_blank">ZimkhithaNongomaza</a></li>
                 </ul>
             </div>
+            
         </div>
     </div>
 
 </body>
 </html>
+

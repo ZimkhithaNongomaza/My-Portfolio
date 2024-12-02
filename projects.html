@@ -21,17 +21,19 @@ body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center; 
-    align-items: flex-start;  
+    align-items: center;  
     height: 100vh;        
     margin: 0;
     background-color: #0f0f0f;
-    color: #fff;
+    color: white;
+    overflow: hidden;
 }
 
+/* Sidebar */
 .sidebar {
-    width: 250px;
+    width: 280px;
     height: 100vh;
-    background-color: #111;  
+    background-color: #111;
     position: fixed;
     top: 0;
     left: 0;
@@ -40,6 +42,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
+    z-index: 10;
 }
 
 .sidebar h2 {
@@ -49,8 +53,10 @@ body {
     -webkit-background-clip: text;
     color: transparent;
     margin-bottom: 40px;
+    animation: neonGlow 1.5s infinite alternate;
 }
 
+/* Sidebar links */
 .sidebar ul {
     list-style-type: none;
     padding-left: 0;
@@ -60,6 +66,7 @@ body {
     width: 100%;
     padding: 15px 0;
     text-align: center;
+    position: relative;
 }
 
 .sidebar ul li a {
@@ -67,25 +74,46 @@ body {
     text-decoration: none;
     font-size: 18px;
     display: block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border:  2px solid #7d2ae8;
+    transition: transform 0.3s ease, color 0.3s ease;
+    letter-spacing: 2px;
+    border: 2px solid transparent;
+    padding: 10px;
 }
 
 .sidebar ul li a:hover {
-    background-color: #7d2ae8;  
-    transform: scale(1.1);  
+    transform: scale(1.1);
+    color: #7d2ae8;
+    border: 2px solid #7d2ae8;
+}
+/* Keyframe Animations */
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 10px #ff4f81, 0 0 20px #ff4f81, 0 0 30px #7d2ae8, 0 0 40px #7d2ae8; }
+    100% { text-shadow: 0 0 20px #7d2ae8, 0 0 40px #ff4f81, 0 0 60px #ff4f81, 0 0 80px #7d2ae8; }
 }
 
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mainContentAnimation {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Main Content Section */
 .main-content {
-    margin-left: 250px; 
+    margin-left: 280px;
     padding: 20px;
-    width: calc(100% - 250px); 
+    width: calc(100% - 280px);
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; 
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: auto;
+    transition: transform 0.5s ease-in-out;
 }
 
 .main-content h1 {
@@ -94,84 +122,92 @@ body {
     font-family: 'Roboto', sans-serif;
     margin-bottom: 15px;
     text-transform: uppercase;
-    filter: blur(0.1px);
+    text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
-.main-content section {
-    margin-bottom: 40px;
+/* Container for the cards */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
 }
 
-.main-content p {
-    font-size: 18px;
-    line-height: 1.6;
+/* Adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-
-    .main-content {
-        margin-left: 200px;
+    .container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        padding-top: 20px;
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-
-    .sidebar h2 {
-        font-size: 60px;
-    }
-
-    .main-content h1 {
-        font-size: 30px;
+    .container {
+        grid-template-columns: 1fr;
     }
 }
 
-audio {
-    display: none;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; 
-    justify-content: center; 
-    max-width: 1200px; 
-    padding: 50px;
-}
-
-.card:hover {
-    background-color: #7d2ae8;  
-}
-
+/* Card Styles */
 .card {
-    background-color:#0f0f0f;
-    width: 100%; 
-    max-width: 300px; 
-    height: 350px; 
+    background-color: #0f0f0f;
+    width: 100%;
+    height: 220px;
     border: 3px solid #7d2ae8;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    transition: transform 0.3s ease;
-}
-.purple-link {
-    color: #7d2ae8; 
-    text-decoration: none; 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    opacity: 0.8;
 }
 
+.card:hover {
+    background-color: #7d2ae8;
+    transform: translateY(-15px);
+    opacity: 1;
+}
+
+/* Card Title */
+.card h1 {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Purple link for hover effect */
+.purple-link {
+    color: #7d2ae8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.purple-link:hover {
+    color: #ff4f81;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 </style>
 
@@ -179,60 +215,44 @@ audio {
     <br>
     <br>
 
-  
-
-
     <div class="sidebar">
         <h2>ZN</h2>
         <ul>
-            <li><a href=" Index.html">Zimkhitha Nongomaza</a></li>
-
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/projects.html">Projects</a></li>
-            <li><a href="/skills.html">Skills</a></li>
-
-
-
+            <li><a href="Index.html">Zimkhitha Nongomaza</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
         </ul>
     </div>
-    </div>
-<br>
-<br>
-<br>
+
     <div class="main-content">
-        <br>
-        <br>
-       <a href="https://ubiquitous-cupcake-625729.netlify.app/"class="purple-link">
-        <div class="card">
-            <div class="container">
-                
-                <h1><b>ECD SYSTEM</b></h1> 
-         
-        
-            </div>
+        <div class="container">
+            <a href="https://ubiquitous-cupcake-625729.netlify.app/" class="purple-link">
+                <div class="card">
+                    <h1>ECD SYSTEM</h1>
+                </div>
+            </a>
+
+            <a href="https://github.com/SquadGoalsEvent/EventPlannify.git" class="purple-link">
+                <div class="card">
+                    <h1>EVENT PLANNER MANAGEMENT SYSTEM</h1>
+                </div>
+            </a>
+
+            <a href="https://github.com/Yandisa619/CartoonifyApp.git" class="purple-link">
+                <div class="card">
+                    <h1>CARTOONIFY APPLICATION</h1>
+                </div>
+            </a>
+
+            <a href="https://github.com/Yandisa619/CartoonifyApp.git" class="purple-link">
+                <div class="card">
+                    <h1>FACE RECOGNITION CLOCKING SYSTEM </h1>
+                </div>
+            </a>
         </div>
-    </a>
-   
-        <a href="https://github.com/SquadGoalsEvent/EventPlannify.git" class="purple-link">
-        <div class="card">
-            <div class="container">
-                <h1><b>EVENT PLANNER MANAGEMENT SYSTEM</b></h1> 
-         
-            </div>
-        </div>
-        </a>
-        <a href="https://github.com/Yandisa619/CartoonifyApp.git"class="purple-link">
-        <div class="card">
-            <div class="container">
-                <h1><b>CARTOONIFY APPLICATION</b></h1> 
-            
-            </div>
-        </div>
-        </a>
     </div>
-    
-
-
 
 </body>
 </html>
+

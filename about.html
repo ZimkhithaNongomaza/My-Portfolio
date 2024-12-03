@@ -16,7 +16,7 @@
     box-sizing: border-box;
 }
 
-/* Body Layout */
+
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -29,7 +29,7 @@ body {
     overflow: hidden;
 }
 
-/* Sidebar */
+
 .sidebar {
     width: 280px;
     height: 100vh;
@@ -56,7 +56,7 @@ body {
     animation: neonGlow 1.5s infinite alternate;
 }
 
-/* Sidebar links */
+
 .sidebar ul {
     list-style-type: none;
     padding-left: 0;
@@ -86,7 +86,7 @@ body {
     border: 2px solid #7d2ae8;
 }
 
-/* Main Content */
+
 .main-content {
     margin-left: 280px;
     padding: 20px;
@@ -122,7 +122,6 @@ body {
     animation-delay: 1s;
 }
 
-/* Hover Effect on Cards */
 .contact-frame {
     position: relative;
     border: 3px solid #7d2ae8;
@@ -146,12 +145,12 @@ body {
     text-transform: uppercase;
 }
 
-/* Contact Info Styling */
+
 .contact-info {
     font-family: Arial, sans-serif;
     margin: 20px;
     text-align: left;
-    max-width: 600px; /* To prevent it from getting too wide */
+    max-width: 600px; 
     margin: 0 auto;
 }
 
@@ -163,30 +162,30 @@ body {
     text-align: center;
 }
 
-/* Styling for the contact list */
+
 .contact-info ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* Each contact list item */
+
 .contact-info li {
     display: flex;
-    align-items: center; /* Ensures that the icon and text align vertically */
+    align-items: center; 
     font-size: 18px;
     margin: 15px 0;
 }
 
-/* Icon styling */
+
 .contact-info i {
     margin-right: 15px;
-    font-size: 24px; /* Makes icons a bit larger */
+    font-size: 24px; 
     color: #7d2ae8;
     transition: color 0.3s ease;
 }
 
-/* Link styling */
+
 .contact-info a {
     color: #7d2ae8;
     text-decoration: none;
@@ -194,16 +193,16 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Hover effects for links and icons */
+
 .contact-info a:hover {
     color: #ff4f81;
 }
 
 .contact-info i:hover {
-    color: #ff4f81; /* Makes icon color change on hover */
+    color: #ff4f81; 
 }
 
-/* Keyframe Animations */
+
 @keyframes neonGlow {
     0% { text-shadow: 0 0 10px #ff4f81, 0 0 20px #ff4f81, 0 0 30px #7d2ae8, 0 0 40px #7d2ae8; }
     100% { text-shadow: 0 0 20px #7d2ae8, 0 0 40px #ff4f81, 0 0 60px #ff4f81, 0 0 80px #7d2ae8; }

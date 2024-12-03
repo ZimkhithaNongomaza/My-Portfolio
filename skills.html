@@ -15,7 +15,7 @@
     box-sizing: border-box;
 }
 
-/* Body Layout */
+
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -28,7 +28,7 @@ body {
     overflow: hidden;
 }
 
-/* Sidebar */
+
 .sidebar {
     width: 280px;
     height: 100vh;
@@ -55,7 +55,7 @@ body {
     animation: neonGlow 1.5s infinite alternate;
 }
 
-/* Sidebar links */
+
 .sidebar ul {
     list-style-type: none;
     padding-left: 0;
@@ -84,7 +84,7 @@ body {
     color: #7d2ae8;
     border: 2px solid #7d2ae8;
 }
-/* Keyframe Animations */
+
 @keyframes neonGlow {
     0% { text-shadow: 0 0 10px #ff4f81, 0 0 20px #ff4f81, 0 0 30px #7d2ae8, 0 0 40px #7d2ae8; }
     100% { text-shadow: 0 0 20px #7d2ae8, 0 0 40px #ff4f81, 0 0 60px #ff4f81, 0 0 80px #7d2ae8; }
@@ -100,20 +100,20 @@ body {
     100% { transform: translateY(0); opacity: 1; }
 }
 
-/* Main content styling */
+
 .main-content {
-    margin-left: 250px; /* To ensure the content is pushed away from the sidebar */
+    margin-left: 250px;
     padding: 20px;
-    width: calc(100% - 250px); /* Adjust width to fill the rest of the screen */
+    width: calc(100% - 250px); 
     display: flex;
-    flex-wrap: wrap;  /* Allow cards to wrap */
-    gap: 20px;  /* Add space between the cards */
-    justify-content: center;  /* Center the cards horizontally */
-    align-items: center;  /* Center the cards vertically */
-    min-height: 100vh; /* Ensure full height to allow vertical centering */
+    flex-wrap: wrap; 
+    gap: 20px;  
+    justify-content: center; 
+    align-items: center;  
+    min-height: 100vh; 
 }
 
-/* Adjustments for mobile view */
+
 @media (max-width: 768px) {
     .sidebar {
         width: 200px;
@@ -133,7 +133,7 @@ body {
 
     .main-content {
         margin-left: 0;
-        flex-direction: column; /* Stack the cards vertically on small screens */
+        flex-direction: column; 
     }
 
     .sidebar h2 {
@@ -160,7 +160,7 @@ audio {
 
 .card {
     background-color:#0f0f0f;
-    width: 23%; /* 4 cards in a row, adjust to fit within 100% */
+    width: 23%; 
     height: 350px; 
     border: 5px solid #7d2ae8;
     border-radius: 10px;
@@ -175,7 +175,7 @@ audio {
 
 .card2 {
     background-color:#0f0f0f;
-    width: 23%; /* 4 cards in a row, adjust to fit within 100% */
+    width: 23%; 
     height: 350px; 
     border: 5px solid #7d2ae8;
     border-radius: 10px;
@@ -232,8 +232,8 @@ audio {
     padding-bottom: 10px
 }
 ul {
-    list-style-type: disc; /* Use bullet points (you can change to circle if needed) */
-    padding-left: 20px; /* Adds padding for proper spacing */
+    list-style-type: disc; 
+    padding-left: 20px; 
 }
 
 

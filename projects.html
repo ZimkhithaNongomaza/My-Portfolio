@@ -16,7 +16,7 @@
     box-sizing: border-box;
 }
 
-/* Body Layout */
+
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -29,7 +29,7 @@ body {
     overflow: hidden;
 }
 
-/* Sidebar */
+
 .sidebar {
     width: 280px;
     height: 100vh;
@@ -56,7 +56,7 @@ body {
     animation: neonGlow 1.5s infinite alternate;
 }
 
-/* Sidebar links */
+
 .sidebar ul {
     list-style-type: none;
     padding-left: 0;
@@ -85,7 +85,7 @@ body {
     color: #7d2ae8;
     border: 2px solid #7d2ae8;
 }
-/* Keyframe Animations */
+
 @keyframes neonGlow {
     0% { text-shadow: 0 0 10px #ff4f81, 0 0 20px #ff4f81, 0 0 30px #7d2ae8, 0 0 40px #7d2ae8; }
     100% { text-shadow: 0 0 20px #7d2ae8, 0 0 40px #ff4f81, 0 0 60px #ff4f81, 0 0 80px #7d2ae8; }
@@ -101,7 +101,7 @@ body {
     100% { transform: translateY(0); opacity: 1; }
 }
 
-/* Main Content Section */
+
 .main-content {
     margin-left: 280px;
     padding: 20px;
@@ -126,7 +126,6 @@ body {
     animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Container for the cards */
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -136,7 +135,7 @@ body {
     margin: 0 auto;
 }
 
-/* Adjustments for smaller screens */
+
 @media (max-width: 1024px) {
     .container {
         grid-template-columns: repeat(3, 1fr);
@@ -155,7 +154,7 @@ body {
     }
 }
 
-/* Card Styles */
+
 .card {
     background-color: #0f0f0f;
     width: 100%;
@@ -178,7 +177,7 @@ body {
     opacity: 1;
 }
 
-/* Card Title */
+
 .card h1 {
     color: #fff;
     font-size: 18px;
@@ -186,7 +185,7 @@ body {
     font-weight: bold;
 }
 
-/* Purple link for hover effect */
+
 .purple-link {
     color: #7d2ae8;
     text-decoration: none;
@@ -197,7 +196,7 @@ body {
     color: #ff4f81;
 }
 
-/* Animations */
+
 @keyframes fadeInUp {
     0% {
         opacity: 0;

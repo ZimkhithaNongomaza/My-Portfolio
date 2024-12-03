@@ -11,25 +11,24 @@
 
 <style>
 
+/* General styles for all screen sizes */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
-    justify-content: center; 
-    align-items: center;  
-    height: 100vh;        
-    margin: 0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background-color: #0f0f0f;
     color: white;
     overflow: hidden;
+    flex-direction: column;
 }
-
 
 .sidebar {
     width: 280px;
@@ -50,13 +49,12 @@ body {
 .sidebar h2 {
     font-size: 100px;
     font-weight: bold;
-    background: linear-gradient(45deg, #ff4f81, #7d2ae8); 
+    background: linear-gradient(45deg, #ff4f81, #7d2ae8);
     -webkit-background-clip: text;
     color: transparent;
     margin-bottom: 40px;
     animation: neonGlow 1.5s infinite alternate;
 }
-
 
 .sidebar ul {
     list-style-type: none;
@@ -87,14 +85,13 @@ body {
     border: 2px solid #7d2ae8;
 }
 
-
 .main-content {
     margin-left: 280px;
     padding: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     justify-content: center;
     animation: mainContentAnimation 2s ease-out forwards;
 }
@@ -146,12 +143,11 @@ body {
     text-transform: uppercase;
 }
 
-
 .contact-info {
     font-family: Arial, sans-serif;
     margin: 20px;
     text-align: left;
-    max-width: 600px; 
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -163,29 +159,25 @@ body {
     text-align: center;
 }
 
-
 .contact-info ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-
 .contact-info li {
     display: flex;
-    align-items: center; 
+    align-items: center;
     font-size: 18px;
     margin: 15px 0;
 }
 
-
 .contact-info i {
     margin-right: 15px;
-    font-size: 24px; 
+    font-size: 24px;
     color: #7d2ae8;
     transition: color 0.3s ease;
 }
-
 
 .contact-info a {
     color: #7d2ae8;
@@ -194,15 +186,13 @@ body {
     transition: color 0.3s ease;
 }
 
-
 .contact-info a:hover {
     color: #ff4f81;
 }
 
 .contact-info i:hover {
-    color: #ff4f81; 
+    color: #ff4f81;
 }
-
 
 @keyframes neonGlow {
     0% { text-shadow: 0 0 10px #ff4f81, 0 0 20px #ff4f81, 0 0 30px #7d2ae8, 0 0 40px #7d2ae8; }
@@ -219,91 +209,7 @@ body {
     100% { transform: translateY(0); opacity: 1; }
 }
 
-
-
-.main-content {
-            margin-left: 270px; 
-            padding: 30px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #7d2ae8;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-top: 50px; 
-        }
-
-        section {
-            width: 100%;
-            max-width: 800px;
-            text-align: center;
-            padding: 20px;
-            background-color: #0f0f0f;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            color:white;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #0f0f0f;
-            border-left: 4px solid #7d2ae8;
-        }
-
-
-.main-content h1 {
-    color: white;
-    font-size: 40px;
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    filter: blur(0.1px);
-
-}
-
-.main-content section {
-    margin-bottom: 40px;
-}
-
-.main-content p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-
-    .main-content {
-        margin-left: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        padding-top: 20px;
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-
-    .sidebar h2 {
-        font-size: 60px;
-    }
-
-    .main-content h1 {
-        font-size: 30px;
-    }
-}
-/* Show the toggle button on small screens */
+/* Small and medium screen sizes (max-width: 768px) */
 @media (max-width: 768px) {
     .sidebar-toggle {
         display: block; /* Show the toggle button */
@@ -337,16 +243,31 @@ body {
     }
 }
 
-/* Hide the toggle button on larger screens */
+/* Larger screen sizes (min-width: 769px) */
 @media (min-width: 769px) {
     .sidebar-toggle {
         display: none; /* Hide the toggle button */
     }
+    
+    /* Sidebar remains visible on large screens */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    .main-content {
+        margin-left: 280px; /* Adjust for sidebar space */
+    }
+}
+
+audio {
+    display: none;
 }
 
 
 
-</style>kk
+</style>
 
 <body>
 
@@ -383,12 +304,13 @@ body {
        
     </div>
     <script>
-        // Toggle the sidebar visibility on small screens
+        // Toggle the sidebar visibility on small and medium screens
         function toggleSidebar() {
             const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('open');
         }
     </script>
+    
 
 </body>
 </html>

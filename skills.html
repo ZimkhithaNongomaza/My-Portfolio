@@ -285,15 +285,39 @@ ul {
 
 @media (max-width: 768px) {
     .card, .card2 {
-        width: 90%; /* Make cards larger on smaller screens */
-        height: auto; /* Let the height adjust based on content */
+        width: 90%; /* Make cards wider on smaller screens */
+        height: auto; /* Allow the height to adjust based on content */
         padding: 30px; /* Increase padding for better content spacing */
+        margin-bottom: 20px; /* Add space between cards */
+        box-sizing: border-box; /* Ensure padding is included in width/height */
     }
 
     .card h1, .card2 h1 {
         font-size: 28px; /* Increase font size for better readability */
     }
+
+    ul {
+        font-size: 16px; /* Make the list items more readable */
+    }
 }
+
+@media (max-width: 480px) {
+    .card, .card2 {
+        width: 100%; /* Full width on very small screens like iPhone XR */
+        padding: 20px; /* Adjust padding to fit better */
+        height: auto; /* Let the height be flexible to accommodate the content */
+    }
+
+    .card h1, .card2 h1 {
+        font-size: 26px; /* Make the title smaller but readable */
+    }
+
+    ul {
+        font-size: 14px; /* Slightly reduce font size for better space utilization */
+        padding-left: 20px; /* Make sure the list items don't go too close to the edge */
+    }
+}
+
 
 
 

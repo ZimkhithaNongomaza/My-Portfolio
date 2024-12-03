@@ -276,10 +276,7 @@ ul {
     }
 }
 
-To make the cards adjust according to the screen size, you can modify the .card and .card2 styles within a media query. Try adjusting their width percentages based on the screen size. Here’s how you can adjust the CSS:
 
-css
-Copy code
 @media (max-width: 1024px) {
     .card, .card2 {
         width: 45%; /* Make cards take up more space on medium screens */
@@ -288,9 +285,16 @@ Copy code
 
 @media (max-width: 768px) {
     .card, .card2 {
-        width: 100%; /* Cards take full width on smaller screens */
+        width: 90%; /* Make cards larger on smaller screens */
+        height: auto; /* Let the height adjust based on content */
+        padding: 30px; /* Increase padding for better content spacing */
+    }
+
+    .card h1, .card2 h1 {
+        font-size: 28px; /* Increase font size for better readability */
     }
 }
+
 
 
 

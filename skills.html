@@ -277,80 +277,57 @@ ul {
 }
 
 
-/* General reset for cards to ensure they adapt properly */
-.card, .card2 {
-    width: 23%; /* Default width for larger screens */
-    height: auto; /* Let height adjust based on content */
-    margin-bottom: 20px; /* Space between cards */
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
 @media (max-width: 1024px) {
     .card, .card2 {
-        width: 45%; /* Cards take 45% of the screen width */
-        padding: 25px;
+        width: 45%; /* Take up 45% on medium screens (adjusted for tablets, etc.) */
     }
 }
 
 @media (max-width: 768px) {
     .card, .card2 {
-        width: 90%; /* Cards take 90% of the screen width */
-        padding: 30px;
-    }
-
-    /* Ensure the cards don't stretch too much on small screens */
-    .container {
-        display: flex;
-        flex-wrap: wrap; /* Ensure cards wrap to the next line */
-        justify-content: center; /* Center the cards */
-        gap: 20px; /* Add space between the cards */
+        width: auto; /* Make cards wider on smaller screens */
+        height: auto; /* Let height adjust based on content */
+        padding: 25px; /* Increase padding for better spacing */
+        margin-bottom: 20px; /* Add space between cards */
+        box-sizing: border-box; /* Ensure padding is included in width/height */
     }
 
     .card h1, .card2 h1 {
-        font-size: 28px;
+        font-size: 28px; /* Make the title larger and readable */
     }
 
     ul {
-        font-size: 16px;
+        font-size: 16px; /* Adjust font size for better readability */
     }
 }
 
 @media (max-width: 480px) {
     .card, .card2 {
-        width: 100%; /* Full width on very small screens */
+        width: auto; /* Full width on very small screens */
         padding: 20px; /* Adjust padding for better fit */
-        height: auto; /* Let the height adjust based on content */
+        height: auto; /* Let the height be flexible */
+        margin-bottom: 15px; /* Add some space between the cards */
     }
 
     .card h1, .card2 h1 {
-        font-size: 26px;
+        font-size: 26px; /* Slightly smaller title to fit better */
     }
 
     ul {
-        font-size: 14px;
+        font-size: 14px; /* Smaller font size for the list items */
+        padding-left: 20px; /* Ensure list items don't touch the edges */
     }
 
-    /* Make sure the container can stack and wrap the cards */
+    /* Additional adjustments for better mobile layout */
     .container {
-        display: flex;
-        flex-wrap: wrap; /* Allow cards to wrap */
-        justify-content: center; /* Center the cards */
-        gap: 20px; /* Space between cards */
-    }
-
-    /* Allow vertical scrolling for the main content */
-    .main-content {
-        overflow-y: auto; /* Allow vertical scroll */
-        height: 100vh; /* Use full height of the viewport */
-        padding-right: 15px; /* Prevent horizontal scrollbar */
+        display: block; /* Ensure container is block-level on small screens */
+        width: 100%; /* Ensure it takes full width */
     }
 
     .sidebar {
-        width: 100%; /* Sidebar takes full width */
+        width: 100%; /* Make sidebar full width on mobile */
+        padding-top: 20px;
     }
-}
 
     .sidebar h2 {
         font-size: 50px; /* Reduce sidebar heading size on small screens */

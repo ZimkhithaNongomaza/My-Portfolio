@@ -279,46 +279,60 @@ ul {
 
 @media (max-width: 1024px) {
     .card, .card2 {
-        width: 45%; /* Make cards take up more space on medium screens */
+        width: 45%; /* Take up 45% on medium screens (adjusted for tablets, etc.) */
     }
 }
 
 @media (max-width: 768px) {
     .card, .card2 {
         width: 90%; /* Make cards wider on smaller screens */
-        height: auto; /* Allow the height to adjust based on content */
-        padding: 30px; /* Increase padding for better content spacing */
+        height: auto; /* Let height adjust based on content */
+        padding: 25px; /* Increase padding for better spacing */
         margin-bottom: 20px; /* Add space between cards */
         box-sizing: border-box; /* Ensure padding is included in width/height */
     }
 
     .card h1, .card2 h1 {
-        font-size: 28px; /* Increase font size for better readability */
+        font-size: 28px; /* Make the title larger and readable */
     }
 
     ul {
-        font-size: 16px; /* Make the list items more readable */
+        font-size: 16px; /* Adjust font size for better readability */
     }
 }
 
 @media (max-width: 480px) {
     .card, .card2 {
-        width: 100%; /* Full width on very small screens like iPhone XR */
-        padding: 20px; /* Adjust padding to fit better */
-        height: auto; /* Let the height be flexible to accommodate the content */
+        width: 100%; /* Full width on very small screens */
+        padding: 20px; /* Adjust padding for better fit */
+        height: auto; /* Let the height be flexible */
+        margin-bottom: 15px; /* Add some space between the cards */
     }
 
     .card h1, .card2 h1 {
-        font-size: 26px; /* Make the title smaller but readable */
+        font-size: 26px; /* Slightly smaller title to fit better */
     }
 
     ul {
-        font-size: 14px; /* Slightly reduce font size for better space utilization */
-        padding-left: 20px; /* Make sure the list items don't go too close to the edge */
+        font-size: 14px; /* Smaller font size for the list items */
+        padding-left: 20px; /* Ensure list items don't touch the edges */
+    }
+
+    /* Additional adjustments for better mobile layout */
+    .container {
+        display: block; /* Ensure container is block-level on small screens */
+        width: 100%; /* Ensure it takes full width */
+    }
+
+    .sidebar {
+        width: 100%; /* Make sidebar full width on mobile */
+        padding-top: 20px;
+    }
+
+    .sidebar h2 {
+        font-size: 50px; /* Reduce sidebar heading size on small screens */
     }
 }
-
-
 
 
 

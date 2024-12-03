@@ -267,6 +267,47 @@ body {
                
             }
         }
+        /* Show the toggle button on small screens */
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: block; /* Show the toggle button */
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        z-index: 20; /* Make sure it's on top of the content */
+    }
+
+    /* Sidebar behavior on small screens */
+    .sidebar {
+        width: 100%; /* Sidebar full width on mobile */
+        height: auto;
+        padding-top: 20px;
+        position: absolute;
+        top: 0;
+        left: -100%; /* Initially hide the sidebar off-screen */
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0; /* When the sidebar is toggled, slide in */
+    }
+
+    /* Ensure the main content takes full width on small screens */
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* Hide the toggle button on larger screens */
+@media (min-width: 769px) {
+    .sidebar-toggle {
+        display: none; /* Hide the toggle button */
+    }
+}
+
 
         audio {
             display: none;
@@ -301,6 +342,14 @@ body {
             </div>
         </div>
     </div>
+
+    <script>
+        // Toggle the sidebar visibility on small screens
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
 
 </body>
 </html>
